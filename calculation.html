@@ -277,45 +277,45 @@
         <div id="result" class="result"></div>
     </div>
 
-    <script>
-        function calculateSemesterAverage() {
-            const subjects = document.querySelectorAll('.subject');
-            const resultDiv = document.getElementById('result');
+<script>
+    function calculateSemesterAverage() {
+        const subjects = document.querySelectorAll('.subject');
+        const resultDiv = document.getElementById('result');
 
-            let totalWeighted = 0;
-            let totalCoefficients = 0;
+        let totalWeighted = 0;
+        let totalCoefficients = 0;
 
-            try {
-                subjects.forEach(subject => {
-                    const quizzes = subject.querySelectorAll('.quiz');
-                    const grades = Array.from(quizzes).map(input => parseFloat(input.value.trim()));
-                    const coefficient = parseFloat(subject.dataset.coefficient);
+        try {
+            subjects.forEach(subject => {
+                const quizzes = subject.querySelectorAll('.quiz');
+                const grades = Array.from(quizzes).map(input => parseFloat(input.value.trim()));
+                const coefficient = parseFloat(subject.dataset.coefficient);
 
-                    // Filter out invalid grades
-                    const validGrades = grades.filter(g => !isNaN(g));
-                    if (validGrades.length === 0) {
-                        throw new Error('All subjects must have at least one valid grade.');
-                    }
+                // Filter out invalid grades
+                const validGrades = grades.filter(g => !isNaN(g));
 
-                    // Calculate subject average
-                    const subjectAverage = validGrades.reduce((a, b) => a + b, 0) / validGrades.length;
-
-                    totalWeighted += subjectAverage * coefficient;
-                    totalCoefficients += coefficient;
-                });
-
-                if (totalCoefficients === 0) {
-                    throw new Error('Total coefficient cannot be zero.');
+                // If no grades are entered, skip this subject
+                if (validGrades.length === 0) {
+                    return; // Skip calculation for this subject
                 }
 
-                const semesterAverage = totalWeighted / totalCoefficients;
-                resultDiv.innerHTML = `Semester Average: <strong>${semesterAverage.toFixed(2)}</strong>`;
-                resultDiv.className = 'result';
-            } catch (error) {
-                resultDiv.innerHTML = `Error: ${error.message}`;
-                resultDiv.className = 'error';
+                // Calculate subject average
+                const subjectAverage = validGrades.reduce((a, b) => a + b, 0) / validGrades.length;
+
+                totalWeighted += subjectAverage * coefficient;
+                totalCoefficients += coefficient;
+            });
+
+            if (totalCoefficients === 0) {
+                throw new Error('No valid subjects with grades entered.');
             }
+
+            const semesterAverage = totalWeighted / totalCoefficients;
+            resultDiv.innerHTML = `Semester Average: <strong>${semesterAverage.toFixed(2)}</strong>`;
+            resultDiv.className = 'result';
+        } catch (error) {
+            resultDiv.innerHTML = `Error: ${error.message}`;
+            resultDiv.className = 'error';
         }
-    </script>
-</body>
-</html>
+    }
+</script>
