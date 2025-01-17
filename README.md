@@ -253,8 +253,8 @@
                     </tr>
                 </table>
             </div>
-            <div class="subject" data-coefficient="2">
-                <h2>Discipline (Coefficient: 2)</h2>
+            <div class="subject" data-coefficient="1">
+                <h2>Discipline (Coefficient: 1)</h2>
                 <table>
                     <tr>
                         <th>Quiz 1</th>
