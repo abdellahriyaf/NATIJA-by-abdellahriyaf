@@ -138,8 +138,8 @@
                 </div>
                 <input type="text" class="grades" placeholder="Comma-separated grades (e.g., 13, 14)">
             </div>
-            <div class="subject" data-coefficient="2">
-                <h2>perseverance (Coefficient: 2)</h2>
+            <div class="subject" data-coefficient="1">
+                <h2>perseverance (Coefficient: 1)</h2>
                 <div class="input-row">
                     <label for="perseverance">Enter Grades (up to 5 quizzes):</label>
                 </div>
