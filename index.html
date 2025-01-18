@@ -86,6 +86,8 @@
 <body>
     <div class="container">
         <h1>حاسبة معدل الفصل الدراسي</h1>
+        <a href="https://github.com/abdellahriyaf/Natija-v2.0" target="_blank">لتحميل التطبيق</a>
+
         <div id="subjects-container">
             <!-- الرياضيات -->
             <div class="subject" data-coefficient="7">
