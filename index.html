@@ -1,4 +1,4 @@
-<html lang="ar">
+<html lang="ar"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +25,21 @@
         h1 {
             color: #f4f4f4;
             margin-bottom: 20px;
+        }
+        .logo-container {
+            position: absolute; /* Positioning the logo at the left of the page */
+            top: 20px;           /* Distance from the top */
+            left: 20px;          /* Distance from the left edge */
+            width: 60px;         /* Smaller size for the logo */
+            height: 60px;        /* Same height as width for a circle */
+            border-radius: 50%;  /* Makes the logo circular */
+            overflow: hidden;    /* Ensures the image fits within the circle */
+            border: 3px solid #fff; /* Optional: Add a border around the logo */
+        }
+        .logo {
+            width: 100%;         /* Makes the logo fit the container */
+            height: 100%;        /* Ensures the logo fills the container */
+            object-fit: cover;   /* Ensures the image covers the space without distortion */
         }
         .subject {
             border: 1px solid #333;
@@ -85,6 +100,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- Logo added here, positioned on the left, linked to refresh the page -->
+        <a href="#" onclick="window.location.reload();">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo" class="logo"> <!-- Replace with your logo path -->
+            </div>
+        </a>
+        
         <h1>حاسبة معدل الفصل الدراسي</h1>
         <a href="https://github.com/abdellahriyaf/Natija-v2.0" target="_blank">لتحميل التطبيق</a>
 
